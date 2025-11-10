@@ -11,7 +11,8 @@ require('./models/venueModel');
 const apiRouter = require('./routes'); // (Tôi giả định file này là /routes/index.js)
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
+
 
 app.use(cors());
 app.use(express.json());
@@ -35,7 +36,8 @@ sequelize.sync({ alter: true }).then(() => {
 
   // Chỉ khởi động server SAU KHI sync thành công
   app.listen(PORT, () => {
-    console.log(`Server listening on http://localhost:${PORT}`);
+    console.log(`✅ Server running on port ${PORT}`);
+
   });
 
 }).catch(err => {
